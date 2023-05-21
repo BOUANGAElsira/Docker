@@ -1,0 +1,12 @@
+FROM python:3.8
+
+WORKDIR /app
+COPY . /app
+
+RUN pip install --no-cache-dir -r requirement.txt
+
+# Exposez le port sur lequel votre application Flask s'exécute
+EXPOSE 2000
+
+# Définissez la commande pour exécuter votre application Flask
+CMD ["python", "main.py"]

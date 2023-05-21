@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  order:
+    container_name: samsam
+    build:
+      context: .
+      dockerfile: dockerfile-dev
+    volumes:
+      - '/usr/src/app'
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_DEBUG=1
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=mysql+pymysql://root:mysql@expose-db:3306/expose
+    depends_on:
+      - expose-db
+
+  expose-db:
+    container_name: expose-db
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql

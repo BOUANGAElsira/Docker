@@ -1,0 +1,386 @@
+
+####################################################################### ADD ########################################################
+
+
+### AJOUT CASH
+
+POST http://127.0.0.1:2000/Cash/add
+Content-Type: application/json
+
+{
+    "amount" : 30.000,
+    "payment_mode" : "Cash",
+    "orderId" : 1,
+
+    "cashTendered" : "12.99"
+}
+
+### AJOUT CHECK
+
+POST http://127.0.0.1:2000/check/add
+Content-Type: application/json
+
+{
+    "amount" : 32.000,
+    "payment_mode" : "Check",
+    "orderId" : 1,
+    "name" : "Blaise",
+    "bankID" : "0000-0000-0011-1111"
+}
+
+
+### AJOUT CREDIT
+
+
+POST http://127.0.0.1:2000/credit/add
+Content-Type: application/json
+
+{
+    "amount" : 34.000,
+    "payment_mode" : "Credit",
+    "orderId" : 1,
+    "number" : "1000 $",
+    "types" : "Pret",
+    "expireDate" : "2025-02-14"
+}
+
+
+### AJOUT CUSTOMER
+
+POST http://127.0.0.1:2000/customer/add
+Content-Type: application/json
+
+{
+    "name" : "JOJO",
+    "deliveryAddress" : "ijojo@gmail.com",
+    "contact" : "+228 97 80 08 17",
+    "active" : true
+}
+
+
+### AJOUT ITEM
+
+POST http://127.0.0.1:2000/item/add
+Content-Type: application/json
+
+{
+    "weight" : 14.5 ,
+    "description" : "Le poids minimal"
+}
+
+
+### AJOUT ORDER
+POST http://127.0.0.1:2000/order/add
+Content-Type: application/json
+
+{
+    "createDate" : "2022-10-01",
+    "customerId" : 2
+}
+
+### AJOUT ORDER DETAIL
+POST http://127.0.0.1:2000/orderDetail/add
+Content-Type: application/json
+
+{
+    "qty" : 100,
+    "taxStatus" : "Actif",
+    "itemId" : 1,
+    "orderId" : 1
+}
+
+### AJOUT ORDER STATUS
+POST http://127.0.0.1:2000/orderStatus/add
+Content-Type: application/json
+
+{
+    "CREATE" : 1,
+    "SHIPPING" : 1,
+    "DELIVERED" : 2,
+    "PAID" : 3
+}
+
+
+### AJOUT PAYMENT
+
+POST http://127.0.0.1:2000/payment/add
+Content-Type: application/json
+
+{
+    "amount" : 24.000,
+    "payment_mode" : "Check",
+    "orderId" : 1
+}
+
+
+### AJOUT WIRE TRANSFER
+
+POST http://127.0.0.1:2000/wiretransfer/add
+Content-Type: application/json
+
+{
+    "amount" : 36.000,
+    "payment_mode" : "Wire Transfer",
+    "orderId" : 1,
+    "bankID" : "Eco_0001",
+    "bankName" : "Ecobank"
+}
+
+
+####################################################################### GET ########################################################################
+
+### GET cash
+GET http://127.0.0.1:2000/cash
+
+### GET check
+GET http://127.0.0.1:2000/check
+
+### GET credit
+GET http://127.0.0.1:2000/credit
+
+### GET customer
+GET http://127.0.0.1:2000/customers
+
+### GET item
+GET http://127.0.0.1:2000/item
+
+### GET order
+GET http://127.0.0.1:2000/order
+
+### GET order detail
+GET http://127.0.0.1:2000/orderDetail
+
+### GET order status
+GET http://127.0.0.1:2000//orderStatus
+
+### GET payment
+GET http://127.0.0.1:2000//payment
+
+### GET wire transfert
+GET http://127.0.0.1:2000//wireTransfer
+
+
+
+###################################################################### UPDATE ###################################################################
+
+### UPDATE CASH
+
+POST http://127.0.0.1:2000/cash/update
+Content-Type: application/json
+
+{
+    "id": 6,
+    "amount" : 45.000,
+    "payment_mode" : "Cash",
+    "orderId" : 1,
+
+    "cashTendered" : "179"
+}
+
+
+### UPDATE CHECK ----
+
+POST http://127.0.0.1:2000/check/update
+Content-Type: application/json
+
+{
+    "id": 7,
+    "amount" : 50.000,
+    "payment_mode" : "Check",
+    "orderId" : 1,
+    "name" : "Blai",
+    "bankID" : "0000-1111-0011-1111"
+}
+
+### UPADATE CREDIT------
+
+
+POST http://127.0.0.1:2000/credit/update
+Content-Type: application/json
+
+{
+    "id" : 8,
+    "amount" : 4.000,
+    "payment_mode" : "Credit",
+    "orderId" : 1,
+    "number" : "1500 $",
+    "types" : "Pret",
+    "expireDate" : "2025-12-14"
+}
+
+
+
+### UPDATE CUSTOMER
+
+POST http://127.0.0.1:2000/customer/update
+Content-Type: application/json
+
+{
+    "id": 4,
+    "name": "John Doe",
+    "deliveryAddress": "123 Main St",
+    "contact": "john.doe@example.com",
+    "active": true
+}
+
+### UPDATE ITEM ---
+
+POST http://127.0.0.1:2000/item/update
+Content-Type: application/json
+
+{
+    "id" : 2,
+    "weight" : 50 ,
+    "description" : "Le poids maximal"
+}
+
+
+### UPDATE ORDER
+POST http://127.0.0.1:2000/order/update
+Content-Type: application/json
+
+{
+    "id" : 2,
+    "createDate" : "2022-02-27",
+    "customerId" : 1
+}
+
+### UPDATE ORDER DETAIL
+POST http://127.0.0.1:2000/order-detail/update
+Content-Type: application/json
+
+{
+    "id" : 2,
+    "qty" : 1000,
+    "taxStatus" : "Actif",
+    "itemId" : 1,
+    "orderId" : 1
+}
+
+### UPDATE ORDER STATUS
+POST http://127.0.0.1:2000/order-status/update
+Content-Type: application/json
+
+{
+    "id" : 2,
+    "CREATE" : 10,
+    "SHIPPING" : 10,
+    "DELIVERED" : 20,
+    "PAID" : 30
+}
+
+
+### UPDATE PAYMENT
+
+POST http://127.0.0.1:2000/payment/update
+Content-Type: application/json
+
+{
+    "id" : 7,
+    "amount" : 54.000,
+    "payment_mode" : "Check",
+    "orderId" : 1
+}
+
+
+### UPDATE WIRE TRANSFER
+
+POST http://127.0.0.1:2000/wiretransfer/update
+Content-Type: application/json
+
+{
+    "id" : 11,
+    "amount" : 16.100,
+    "payment_mode" : "Wire Transfer",
+    "orderId" : 1,
+    "bankID" : "Eco_0021",
+    "bankName" : "Ecobank"
+}
+
+
+
+###################################################################### DELETE ###################################################################
+
+POST http://127.0.0.1:2000/cash/delete
+Content-Type: application/json
+
+{
+    "id": 12
+}
+
+###
+POST http://127.0.0.1:2000/check/delete
+Content-Type: application/json
+
+{
+    "id": 7
+}
+
+
+###
+POST http://127.0.0.1:2000/credit/delete
+Content-Type: application/json
+
+{
+    "id": 4
+}
+
+###
+POST http://127.0.0.1:2000/customer/delete
+Content-Type: application/json
+
+{
+    "id": 5
+}
+
+###
+
+POST http://127.0.0.1:2000/item/delete
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+###
+
+POST http://127.0.0.1:2000/order/delete
+Content-Type: application/json
+
+{
+    "id": 4
+}
+
+###
+
+POST http://127.0.0.1:2000/orderDetail/delete
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###
+POST http://127.0.0.1:2000/orderStatus/delete
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+###
+POST http://127.0.0.1:2000/payment/delete
+Content-Type: application/json
+
+{
+    "id": 10
+}
+
+###
+POST http://127.0.0.1:2000/wireTansfer/delete
+Content-Type: application/json
+
+{
+    "id": 5
+}
+
